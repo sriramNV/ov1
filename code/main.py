@@ -1,5 +1,6 @@
 from settings import *
 from level import Level
+from pytmx.util_pygame import load_pygame
 
 
 class Game:
@@ -7,6 +8,9 @@ class Game:
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption("project-ov1")
+
+        self.tmx_maps = {0: load_pygame("../data/levels/omni.tmx")}
+        print(self.tmx_maps)
 
         self.current_stage = Level()
 
